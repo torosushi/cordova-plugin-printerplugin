@@ -565,11 +565,12 @@ public class PrintingPlugin extends CordovaPlugin {
         try {
             Log.d(PRINT, String.valueOf(success));Log.e(PRINT,"printPOSCommand: "+Arrays.toString(buffer));
             output.write(buffer);
+            outputStreamToPrinter(callbackContext);
 //            if (success) {
 //                mmOutputStream.write(buffer);
 //                callbackContext.success("Data Sent");
 //            } else if (wifiPrinters) {
-//                prints(callbackContext, buffer);
+ //               prints(callbackContext, buffer);
 //            } else if (!success && Printer.usbDeviceConnection != null)
 //                print(callbackContext, buffer);
             // tell the user data were sent

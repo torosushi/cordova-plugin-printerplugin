@@ -244,11 +244,11 @@ public class PrintingPlugin extends CordovaPlugin {
                     }
                 }
             } else if (Printer.usbDeviceConnection != null) {
-                try {
+               /* try {
                     disconnectUSB(callbackContext);
                 } catch (Exception e) {
                     Log.d(LOG_TAG, e.getMessage());
-                }
+                }*/
             }
             if (success = findBT(name)) {
                 try {
@@ -258,10 +258,11 @@ public class PrintingPlugin extends CordovaPlugin {
                     Log.e(PRINT, e.getMessage());
                     e.printStackTrace();
                 }
-            } else if (success = findWifiPrinter(name)) {
+            } else if (name) {
                 try {
                     success = false;
                     wifiPrinters = true;
+                    ipOfTheWifiPrinter = name;
                     connectToWifiPrinter(callbackContext);
                 } catch (Exception e) {
                     Log.e(PRINT, e.getMessage());

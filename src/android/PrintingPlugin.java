@@ -1270,12 +1270,15 @@ public class PrintingPlugin extends CordovaPlugin {
         final int TIME_OUT_FOR_CONNECTION = 3000;
         Log.d(TAGS, "Trying to connect to the wifiPrinter: " + ipOfTheWifiPrinter);
         try {
-            SocketAddress sa = new InetSocketAddress(ipOfTheWifiPrinter, PORT);
+            client = new Socket(ipOfTheWifiPrinter, PORT);
+            client.setSoTimeout(1000);
+            mmOutputStream = client.getOutputStream();
+            /*SocketAddress sa = new InetSocketAddress(ipOfTheWifiPrinter, PORT);
             client = new Socket();
             client.connect(sa, TIME_OUT_FOR_CONNECTION);
             mmOutputStream = client.getOutputStream();
             mmInputStream = client.getInputStream();
-            beginListenForData();
+            beginListenForData();*/
             Toast.makeText(cordova.getActivity(), "Successfully Connected to the Wifi Printer...", Toast.LENGTH_SHORT).show();
             callbackContext.success("Successfully Connected to the :" + ipOfTheWifiPrinter + " WifiPrinter");
         } catch (IOException e) {

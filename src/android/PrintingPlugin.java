@@ -563,7 +563,7 @@ public class PrintingPlugin extends CordovaPlugin {
 
     private void printPOSCommand(CallbackContext callbackContext, byte[] buffer) throws IOException {
         try {
-            Log.d(PRINT, String.valueOf(success));
+            Log.d(PRINT, String.valueOf(success));Log.e(PRINT,"printPOSCommand: "+Arrays.toString(buffer));
             output.write(buffer);
 //            if (success) {
 //                mmOutputStream.write(buffer);

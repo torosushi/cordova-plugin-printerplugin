@@ -635,6 +635,7 @@ public class PrintingPlugin extends CordovaPlugin {
     private void outputStreamToPrinter(CallbackContext callbackContext) throws IOException {
         try {
             byte[] finalOutputStream = output.toByteArray();
+            Log.d(PRINT, "finalOutputStream: " + Arrays.toString(finalOutputStream));
             if (success) {
                 mmOutputStream.write(finalOutputStream);
                 callbackContext.success("Data Sent");

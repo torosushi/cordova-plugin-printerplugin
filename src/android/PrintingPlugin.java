@@ -258,7 +258,7 @@ public class PrintingPlugin extends CordovaPlugin {
                     Log.e(PRINT, e.getMessage());
                     e.printStackTrace();
                 }
-            } else if (name) {
+            } else if (name!=null) {
                 try {
                     success = false;
                     wifiPrinters = true;

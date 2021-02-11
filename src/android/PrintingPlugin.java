@@ -563,14 +563,13 @@ public class PrintingPlugin extends CordovaPlugin {
 
     private void printPOSCommand(CallbackContext callbackContext, byte[] buffer) throws IOException {
         try {
-            Log.d(PRINT, String.valueOf(success));Log.e(PRINT,"printPOSCommand: "+Arrays.toString(buffer));
+            Log.d(PRINT, String.valueOf(success));
             output.write(buffer);
-            outputStreamToPrinter(callbackContext);
 //            if (success) {
 //                mmOutputStream.write(buffer);
 //                callbackContext.success("Data Sent");
 //            } else if (wifiPrinters) {
- //               prints(callbackContext, buffer);
+//                prints(callbackContext, buffer);
 //            } else if (!success && Printer.usbDeviceConnection != null)
 //                print(callbackContext, buffer);
             // tell the user data were sent
@@ -636,7 +635,6 @@ public class PrintingPlugin extends CordovaPlugin {
     private void outputStreamToPrinter(CallbackContext callbackContext) throws IOException {
         try {
             byte[] finalOutputStream = output.toByteArray();
-            Log.d(PRINT, "finalOutputStream: " + Arrays.toString(finalOutputStream));
             if (success) {
                 mmOutputStream.write(finalOutputStream);
                 callbackContext.success("Data Sent");
@@ -1272,9 +1270,6 @@ public class PrintingPlugin extends CordovaPlugin {
         final int TIME_OUT_FOR_CONNECTION = 3000;
         Log.d(TAGS, "Trying to connect to the wifiPrinter: " + ipOfTheWifiPrinter);
         try {
-            /*client = new Socket(ipOfTheWifiPrinter, PORT);
-            client.setSoTimeout(1000);
-            mmOutputStream = client.getOutputStream();*/
             SocketAddress sa = new InetSocketAddress(ipOfTheWifiPrinter, PORT);
             client = new Socket();
             client.connect(sa, TIME_OUT_FOR_CONNECTION);
@@ -1410,8 +1405,3 @@ public class PrintingPlugin extends CordovaPlugin {
     }
 
 }
-
-
-
-
-

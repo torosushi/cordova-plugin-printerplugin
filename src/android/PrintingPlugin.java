@@ -144,7 +144,7 @@ public class PrintingPlugin extends CordovaPlugin {
                 findUSBPrinters(callbackContext, listWifiPrinters(listBT(json)));
             } catch (Exception e) {
                 e.printStackTrace();
-                //callbackContext.error(e.getMessage());
+                callbackContext.error(e.getMessage());
             }
             return true;
         } else if (action.equals("connect")) {

@@ -22,6 +22,9 @@ var CordovaPrint = {
     image: function(fnSuccess, fnError, str){
        exec(fnSuccess, fnError, "PrintingPlugin", "printImage", [str]);
     },
+    img: function(fnSuccess, fnError, str){
+       exec(fnSuccess, fnError, "PrintingPlugin", "printImg", [str]);
+    },
     posCommand: function(fnSuccess, fnError, str){
        exec(fnSuccess, fnError, "PrintingPlugin", "printPOSCommand", [str]);
     },

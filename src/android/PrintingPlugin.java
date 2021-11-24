@@ -317,6 +317,33 @@ public class PrintingPlugin extends CordovaPlugin {
                 callbackContext.error(e.getMessage());
             }
             return true;
+        } else if (action.equals("printImg")) {
+            //String dialog = "{theme : 'TRADITIONAL',progressStyle : 'SPINNER',cancelable : true,title : 'Please Wait...',message : 'Printing...'}";
+            try {
+                String msg =args.getString(0);
+                /*String msg = "/" + args.getString(0);
+                //Input stream
+                InputStream mInputStream = new FileInputStream(Environment.getExternalStorageDirectory() + msg);
+                //For storing the data in bytes
+                byte[] buffer = new byte[8192];
+                int bytesRead;
+                ByteArrayOutputStream output = new ByteArrayOutputStream();
+                try {
+                    while ((bytesRead = mInputStream.read(buffer)) != -1) {
+                        output.write(buffer, 0, bytesRead);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                byte[] bytes = output.toByteArray();
+                printImage(callbackContext, Base64.encodeToString(bytes, Base64.DEFAULT));*/
+                printImage(callbackContext, msg);
+            } catch (IOException e) {
+                Log.e(PRINT, e.getMessage());
+                e.printStackTrace();
+                callbackContext.error(e.getMessage());
+            }
+            return true;
         } else if (action.equals("printText") || action.equals("printQrCode")) {
             try {
                 String msg = args.getString(0);

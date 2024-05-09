@@ -281,12 +281,10 @@ public class PrintingPlugin extends CordovaPlugin {
                 if (success) {
                     success = false;
                     disconnectBT(callbackContext);
-                } //else 
-                    if (wifiPrinters) {
+                } else if (wifiPrinters) {
                     wifiPrinters = false;
                     disconnect(callbackContext);
-                } //else 
-                        if (!success){
+                } else if (!success){
                     disconnectUSB(callbackContext);
                 }else {callbackContext.error("Unable to Disconnect");}
             } catch (IOException e) {
@@ -1338,7 +1336,7 @@ public class PrintingPlugin extends CordovaPlugin {
             mmInputStream.close();
             client.close();
             Toast.makeText(cordova.getActivity(), "Wifi Printer disconnected", Toast.LENGTH_SHORT).show();
-            callbackContext.success("Bluetooth Disconnect");
+            callbackContext.success("Wifi Disconnect");
         } catch (Exception e) {
             String errMsg = e.getMessage();
             Log.e(TAGS, errMsg);

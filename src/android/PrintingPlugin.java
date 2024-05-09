@@ -281,12 +281,14 @@ public class PrintingPlugin extends CordovaPlugin {
                 if (success) {
                     success = false;
                     disconnectBT(callbackContext);
-                } else if (wifiPrinters) {
+                } //else 
+                    if (wifiPrinters) {
                     wifiPrinters = false;
                     disconnect(callbackContext);
-                } else if (!success)
+                } //else 
+                        if (!success){
                     disconnectUSB(callbackContext);
-                else callbackContext.error("Unable to Disconnect");
+                }else {callbackContext.error("Unable to Disconnect");}
             } catch (IOException e) {
                 Log.e(PRINT, e.getMessage());
                 e.printStackTrace();
